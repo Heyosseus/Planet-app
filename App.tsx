@@ -14,12 +14,14 @@ import Saturn from "./components/planets/Saturn/Saturn";
 import Uranus from "./components/planets/Uranus/Uranus";
 import hamburger from "./assets/icon-hamburger.svg";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Planets, FlexContainerForDesktop, PlanetsContainer } from "./components/styles/Details";
 
 const defaultTheme = {
   background: "rgb(7, 7, 36)",
 };
+
 function App() {
-  const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState<boolean>(false);
   const changeHandler = () => {
     setIsShown(!isShown);
   };
@@ -33,19 +35,38 @@ function App() {
         ></link>
       </Helmet>
       <div>
-        <Container>
-          The Planets <Hamburger onClick={changeHandler}></Hamburger>
-        </Container>
-        <div style={{ display: "flex" }}>
-          <Planets href="/">mercury</Planets>
-          <Planets href="/venus">venus</Planets>
-          <Planets href="/earth">earth</Planets>
-          <Planets href="/mars">mars</Planets>
-          <Planets href="/jupiter">jupiter</Planets>
-          <Planets href="/saturn">saturn</Planets>
-          <Planets href="/uranus">uranus</Planets>
-          <Planets href="/neptune">neptune</Planets>
-        </div>
+        <FlexContainerForDesktop>
+          <Container>
+            The Planets <Hamburger onClick={changeHandler}></Hamburger>
+          </Container>
+          <PlanetsContainer>
+            <Planets color="#419EBB" href="/">
+              mercury
+            </Planets>
+            <Planets color="#EDA249" href="/venus">
+              venus
+            </Planets>
+            <Planets color="#6D2ED5" href="/earth">
+              earth
+            </Planets>
+            <Planets color="#D14C32" href="/mars">
+              mars
+            </Planets>
+            <Planets color="#D83A34" href="/jupiter">
+              jupiter
+            </Planets>
+            <Planets color="#CD5120" href="/saturn">
+              saturn
+            </Planets>
+            <Planets color="#1EC1A2" href="/uranus">
+              uranus
+            </Planets>
+            <Planets color="#2D68F0" href="/neptune">
+              neptune
+            </Planets>
+          </PlanetsContainer>
+        </FlexContainerForDesktop>
+
         {isShown ? (
           <>
             <Menu />
@@ -63,14 +84,7 @@ function App() {
 
             <Router>
               <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <>
-                      <Mercury />
-                    </>
-                  }
-                ></Route>
+                <Route path="/" element={<Mercury />}></Route>
 
                 <Route path="/venus" element={<Venus />}></Route>
                 <Route path="/earth" element={<Earth />}></Route>
@@ -101,6 +115,10 @@ const Container = styled.header`
     justify-content: center;
     align-items: center;
   }
+  @media (min-width: 1440px) {
+    font-size: 32px;
+    display: flex;
+  }
 `;
 
 const Hamburger = styled.div`
@@ -130,18 +148,9 @@ const Details = styled.div`
   margin: 16px 24px;
   display: flex;
   gap: 14px;
-`;
-
-const Planets = styled.a`
-  display: flex;
-  justify-content: space-between;
-  color: #ffffffc3;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 1px;
-  margin: 24px;
-  font-size: 12px;
-  @media (max-width: 678px) {
+  @media (min-width: 678px) {
     display: none;
   }
 `;
+
+

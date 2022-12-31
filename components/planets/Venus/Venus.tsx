@@ -3,37 +3,49 @@ import { Container } from "../Mercury/Mercury";
 import styled from "styled-components";
 import venus from "../../../assets/planet-venus.svg";
 import json from '../../../data.json'
-import { Details, Info, Heading, Paragraph, Link, Content } from '../../styles/Details'
+import { Details, Info, Heading, Paragraph, Link, Content, About, DetailsForTablet, ForDesktopAdjustment, OverviewContent, DetailsContainer } from '../../styles/Details'
 import source from '../../../assets/icon-source.svg'
 function Venus() {
+  
   return (
     <Container>
       <Image></Image>
-      <div>
+      <ForDesktopAdjustment>
         {json && (
           <div>
-            <Content>
-              <Heading>{json[1].name}</Heading>
-              <Paragraph>{json[1].overview.content}</Paragraph>
-              <Link href={json[1].overview.source}>
-                Source: Wikipedia <Img></Img>
-              </Link>
-            </Content>
-            <Details>
-              rotation time <Info>{json[1].rotation}</Info>
-            </Details>
-            <Details>
-              revolution time <Info>{json[1].revolution}</Info>
-            </Details>
-            <Details>
-              radius <Info>{json[1].radius}</Info>
-            </Details>
-            <Details>
-              average temp. <Info>{json[1].temperature}</Info>
-            </Details>
+            <OverviewContent>
+              <Content>
+                <Heading>{json[1].name}</Heading>
+                <Paragraph>{json[1].overview.content}</Paragraph>
+                <Link href={json[1].overview.source}>
+                  Source: Wikipedia <Img></Img>
+                </Link>
+              </Content>
+              <DetailsForTablet>
+                <About color="#EDA249" background="#EDA249">
+                  01 overview
+                </About>
+                <About color="#EDA249">02 internal structure</About>
+                <About color="#EDA249">03 surface geology</About>
+              </DetailsForTablet>
+            </OverviewContent>
+            <DetailsContainer>
+              <Details>
+                rotation time <Info>{json[1].rotation}</Info>
+              </Details>
+              <Details>
+                revolution time <Info>{json[1].revolution}</Info>
+              </Details>
+              <Details>
+                radius <Info>{json[1].radius}</Info>
+              </Details>
+              <Details>
+                average temp. <Info>{json[1].temperature}</Info>
+              </Details>
+            </DetailsContainer>
           </div>
         )}
-      </div>
+      </ForDesktopAdjustment>
     </Container>
   );
 }
@@ -50,6 +62,11 @@ const Image = styled.div`
   @media (min-width: 678px){
     width: 253px;
     height: 253px;
+  }
+  @media (min-width: 1440px){
+    width: 400px;
+    height: 400px;
+    margin-left: 220px;
   }
 `;
 

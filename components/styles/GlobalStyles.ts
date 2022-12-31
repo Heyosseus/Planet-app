@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
         background: rgb(7,7,36);
         color: white;
         font-family: 'League Spartan', sans-serif;
+        overflow-x: hidden;
     }
 `
 

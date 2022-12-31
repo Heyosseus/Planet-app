@@ -15,6 +15,51 @@ export const Details = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  @media (min-width: 1440px){
+    width: 251px;
+    height: 108px;
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+export const DetailsForTablet = styled.div`
+ height: 152px;
+  width: 285px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 104px 24px;
+  gap: 12px;
+  @media (max-width: 678px) {
+    display: none;
+  }
+
+`
+interface isActive {
+  isActive?: boolean;
+  background?: string
+}
+
+export const About = styled.a<isActive>`
+  border: 1px solid white;
+  height: 40px;
+  width: 100%;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0 20px;
+  line-height: 40px;
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  background: ${props => props?.background};
+
+  &:hover{
+    background-color: ${props => props.color};
+  }
+  @media (min-width: 1440px){
+    width: 340px;
+  }
+  
 `
 
 export const Info = styled.div`
@@ -74,4 +119,81 @@ export const Content = styled.div`
     align-items: flex-start;
     margin: 48px 24px;
   }
+  @media (min-width: 1440px){
+    height: 120px;
+  }
 `;
+
+export const OverviewContent = styled.div`
+  display: flex;
+  @media (min-width:1440px){
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    align-items: center;
+    margin-top: 14px;
+    
+  }
+`
+
+export const DetailsContainer = styled.div`
+@media (min-width: 1440px) {
+  display: flex;
+}
+`
+
+export const ForDesktopAdjustment = styled.div`
+  @media (min-width: 1440px){
+    width: 960px;
+  }
+`
+
+export const Planets = styled.a`
+  display: flex;
+  justify-content: space-between;
+  color: #ffffffc3;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  margin: 24px;
+  font-size: 12px;
+  width: 52px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10;
+    top: 0;
+    right: 0;
+    height: 2px;
+    background-color: ${props => props.color};
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.3s ease-in-out 0s;
+    width: 100%;
+    margin-top: 20px;
+    
+  }
+  &:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+    
+  }
+  @media (max-width: 678px) {
+    display: none;
+  }
+`;
+
+
+export const FlexContainerForDesktop = styled.div`
+  @media (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+export const PlanetsContainer = styled.div`
+  display: flex;
+`

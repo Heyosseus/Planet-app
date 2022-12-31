@@ -1,4 +1,16 @@
-import { Details, Info, Heading, Paragraph, Link, Content } from "../../styles/Details";
+import {
+  Details,
+  Info,
+  Heading,
+  Paragraph,
+  Link,
+  Content,
+  About,
+  DetailsForTablet,
+  ForDesktopAdjustment,
+  OverviewContent,
+  DetailsContainer,
+} from "../../styles/Details";
 import source from "../../../assets/icon-source.svg";
 import json from "../../../data.json";
 import styled from "styled-components";
@@ -7,31 +19,42 @@ function Saturn() {
   return (
     <Container>
       <Image></Image>
-      <div>
+      <ForDesktopAdjustment>
         {json && (
           <div>
-            <Content>
-              <Heading>{json[5].name}</Heading>
-              <Paragraph>{json[5].overview.content}</Paragraph>
-              <Link href={json[5].overview.source}>
-                Source: Wikipedia <Img></Img>
-              </Link>
-            </Content>
-            <Details>
-              rotation time <Info>{json[5].rotation}</Info>
-            </Details>
-            <Details>
-              revolution time <Info>{json[5].revolution}</Info>
-            </Details>
-            <Details>
-              radius <Info>{json[5].radius}</Info>
-            </Details>
-            <Details>
-              average temp. <Info>{json[5].temperature}</Info>
-            </Details>
+            <OverviewContent>
+              <Content>
+                <Heading>{json[5].name}</Heading>
+                <Paragraph>{json[5].overview.content}</Paragraph>
+                <Link href={json[5].overview.source}>
+                  Source: Wikipedia <Img></Img>
+                </Link>
+              </Content>
+              <DetailsForTablet>
+                <About color="#CD5120" background="#CD5120">
+                  01 overview
+                </About>
+                <About color="#CD5120">02 internal structure</About>
+                <About color="#CD5120">03 surface geology</About>
+              </DetailsForTablet>
+            </OverviewContent>
+            <DetailsContainer>
+              <Details>
+                rotation time <Info>{json[5].rotation}</Info>
+              </Details>
+              <Details>
+                revolution time <Info>{json[5].revolution}</Info>
+              </Details>
+              <Details>
+                radius <Info>{json[5].radius}</Info>
+              </Details>
+              <Details>
+                average temp. <Info>{json[5].temperature}</Info>
+              </Details>
+            </DetailsContainer>
           </div>
         )}
-      </div>
+      </ForDesktopAdjustment>
     </Container>
   );
 }
@@ -42,6 +65,11 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (min-width: 1440px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const Image = styled.div`
@@ -55,6 +83,12 @@ const Image = styled.div`
     width: 343px;
     height: 343px;
   }
+  @media (min-width: 1440px) {
+    width: 563px;
+    height: 563px;
+    margin-left:84px;
+  }
+
 `;
 
 const Img = styled.div`
