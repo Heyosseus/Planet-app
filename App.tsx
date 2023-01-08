@@ -13,8 +13,18 @@ import Jupiter from "./components/planets/Jupiter/Jupiter";
 import Saturn from "./components/planets/Saturn/Saturn";
 import Uranus from "./components/planets/Uranus/Uranus";
 import hamburger from "./assets/icon-hamburger.svg";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Planets, FlexContainerForDesktop, PlanetsContainer } from "./components/styles/Details";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  HashRouter,
+} from "react-router-dom";
+import {
+  Planets,
+  FlexContainerForDesktop,
+  PlanetsContainer,
+} from "./components/styles/Details";
 
 const defaultTheme = {
   background: "rgb(7, 7, 36)",
@@ -26,66 +36,102 @@ function App() {
     setIsShown(!isShown);
   };
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <GlobalStyles />
-      <Helmet>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Antonio&family=League+Spartan:wght@700&display=swap"
-          rel="stylesheet"
-        ></link>
-      </Helmet>
-      <div>
-        <FlexContainerForDesktop>
-          <Container>
-            The Planets <Hamburger onClick={changeHandler}></Hamburger>
-          </Container>
-          <PlanetsContainer>
-            <Planets color="#419EBB" href="/">
-              mercury
-            </Planets>
-            <Planets color="#EDA249" href="/venus">
-              venus
-            </Planets>
-            <Planets color="#6D2ED5" href="/earth">
-              earth
-            </Planets>
-            <Planets color="#D14C32" href="/mars">
-              mars
-            </Planets>
-            <Planets color="#D83A34" href="/jupiter">
-              jupiter
-            </Planets>
-            <Planets color="#CD5120" href="/saturn">
-              saturn
-            </Planets>
-            <Planets color="#1EC1A2" href="/uranus">
-              uranus
-            </Planets>
-            <Planets color="#2D68F0" href="/neptune">
-              neptune
-            </Planets>
-          </PlanetsContainer>
-        </FlexContainerForDesktop>
+    <Router>
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyles />
+        <Helmet>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;500&family=League+Spartan:wght@400;700&display=swap"
+            rel="stylesheet"
+          ></link>
+        </Helmet>
+        <div>
+          <FlexContainerForDesktop>
+            <Container>
+              The Planets <Hamburger onClick={changeHandler}></Hamburger>
+            </Container>
+            <PlanetsContainer>
+              <Planets color="#419EBB">
+                <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+                  mercury
+                </Link>
+              </Planets>
+              <Planets color="#EDA249">
+                <Link
+                  to="/venus"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  venus
+                </Link>
+              </Planets>
+              <Planets color="#6D2ED5">
+                <Link
+                  to="/earth"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  earth
+                </Link>
+              </Planets>
+              <Planets color="#D14C32">
+                <Link
+                  to="/mars"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  mars
+                </Link>
+              </Planets>
+              <Planets color="#D83A34">
+                <Link
+                  to="/jupiter"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  jupiter
+                </Link>
+              </Planets>
+              <Planets color="#CD5120">
+                <Link
+                  to="/saturn"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  saturn
+                </Link>
+              </Planets>
+              <Planets color="#1EC1A2">
+                <Link
+                  to="/uranus"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  uranus
+                </Link>
+              </Planets>
+              <Planets color="#2D68F0">
+                <Link
+                  to="/neptune"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  neptune
+                </Link>
+              </Planets>
+            </PlanetsContainer>
+          </FlexContainerForDesktop>
 
-        {isShown ? (
-          <>
-            <Menu />
-          </>
-        ) : (
-          <div>
-            <Line></Line>
+          {isShown ? (
+            <>
+              <Menu isShown={isShown} setIsShown={setIsShown} />
+            </>
+          ) : (
+            <div>
+              <Line></Line>
 
-            <Details>
-              <div>Overview</div>
-              <div>Structure</div>
-              <div>Surface</div>
-            </Details>
-            <Line></Line>
+              <Details>
+                <div>Overview</div>
+                <div>Structure</div>
+                <div>Surface</div>
+              </Details>
+              <Line></Line>
 
-            <Router>
               <Routes>
                 <Route path="/" element={<Mercury />}></Route>
-
                 <Route path="/venus" element={<Venus />}></Route>
                 <Route path="/earth" element={<Earth />}></Route>
                 <Route path="/mars" element={<Mars />}></Route>
@@ -94,11 +140,11 @@ function App() {
                 <Route path="/uranus" element={<Uranus />}></Route>
                 <Route path="/neptune" element={<Neptune />}></Route>
               </Routes>
-            </Router>
-          </div>
-        )}
-      </div>
-    </ThemeProvider>
+            </div>
+          )}
+        </div>
+      </ThemeProvider>
+    </Router>
   );
 }
 
@@ -152,5 +198,3 @@ const Details = styled.div`
     display: none;
   }
 `;
-
-
