@@ -3,7 +3,7 @@ import {
   Info,
   Heading,
   Paragraph,
-  Link,
+  LinkAnchor,
   Content,
   DetailsForTablet,
   About,
@@ -15,7 +15,10 @@ import source from "../../../assets/icon-source.svg";
 import json from "../../../data.json";
 import styled from "styled-components";
 import neptune from "../../../assets/planet-neptune.svg";
+import { useHref } from "react-router";
+import { Link } from "react-router-dom";
 function Neptune() {
+  // const neptune = useHref('/neptune')
   return (
     <Container>
       <Image></Image>
@@ -26,9 +29,9 @@ function Neptune() {
               <Content>
                 <Heading>{json[7].name}</Heading>
                 <Paragraph>{json[7].overview.content}</Paragraph>
-                <Link href={json[7].overview.source}>
+                <LinkAnchor href={json[7].overview.source}>
                   Source: Wikipedia <Img></Img>
-                </Link>
+                </LinkAnchor>
               </Content>
               <DetailsForTablet>
                 <About color="#2D68F0" background="#2D68F0">
@@ -55,6 +58,7 @@ function Neptune() {
           </div>
         )}
       </ForDesktopAdjustment>
+      {/* <Link to = {neptune}></Link> */}
     </Container>
   );
 }

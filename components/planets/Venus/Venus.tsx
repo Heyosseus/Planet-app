@@ -3,7 +3,19 @@ import { Container } from "../Mercury/Mercury";
 import styled from "styled-components";
 import venus from "../../../assets/planet-venus.svg";
 import json from '../../../data.json'
-import { Details, Info, Heading, Paragraph, Link, Content, About, DetailsForTablet, ForDesktopAdjustment, OverviewContent, DetailsContainer } from '../../styles/Details'
+import {
+  Details,
+  Info,
+  Heading,
+  Paragraph,
+  LinkAnchor,
+  Content,
+  About,
+  DetailsForTablet,
+  ForDesktopAdjustment,
+  OverviewContent,
+  DetailsContainer,
+} from "../../styles/Details";
 import source from '../../../assets/icon-source.svg'
 function Venus() {
   
@@ -17,9 +29,9 @@ function Venus() {
               <Content>
                 <Heading>{json[1].name}</Heading>
                 <Paragraph>{json[1].overview.content}</Paragraph>
-                <Link href={json[1].overview.source}>
+                <LinkAnchor href={json[1].overview.source}>
                   Source: Wikipedia <Img></Img>
-                </Link>
+                </LinkAnchor>
               </Content>
               <DetailsForTablet>
                 <About color="#EDA249" background="#EDA249">

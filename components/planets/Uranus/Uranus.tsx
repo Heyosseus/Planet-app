@@ -3,7 +3,7 @@ import {
   Info,
   Heading,
   Paragraph,
-  Link,
+  LinkAnchor,
   Content,
   About,
   DetailsForTablet,
@@ -26,9 +26,9 @@ function Uranus() {
               <Content>
                 <Heading>{json[6].name}</Heading>
                 <Paragraph>{json[6].overview.content}</Paragraph>
-                <Link href={json[6].overview.source}>
+                <LinkAnchor href={json[6].overview.source}>
                   Source: Wikipedia <Img></Img>
-                </Link>
+                </LinkAnchor>
               </Content>
               <DetailsForTablet>
                 <About color="#1EC1A2" background="#1EC1A2">

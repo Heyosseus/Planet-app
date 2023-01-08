@@ -3,7 +3,7 @@ import {
   Info,
   Heading,
   Paragraph,
-  Link,
+  LinkAnchor,
   Content,
   About,
   DetailsForTablet,
@@ -26,9 +26,9 @@ function Mars() {
               <Content>
                 <Heading>{json[3].name}</Heading>
                 <Paragraph>{json[3].overview.content}</Paragraph>
-                <Link href={json[3].overview.source}>
+                <LinkAnchor href={json[3].overview.source}>
                   Source: Wikipedia <Img></Img>
-                </Link>
+                </LinkAnchor>
               </Content>
               <DetailsForTablet>
                 <About color="#D14C32" background="#D14C32">

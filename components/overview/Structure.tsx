@@ -7,8 +7,8 @@ import {
   Info,
   Heading,
   Paragraph,
-  Link,
   Content,
+  LinkAnchor,
 } from "../styles/Details";
 
 function Structure() {
@@ -25,9 +25,9 @@ function Structure() {
             <Content>
               <Heading>{eachPlanet.name}</Heading>
               <Paragraph>{eachPlanet.structure.content}</Paragraph>
-              <Link href={eachPlanet.structure.source}>
+              <LinkAnchor href={eachPlanet.structure.source}>
                 Source: Wikipedia <Img src={eachPlanet.structure.source}></Img>
-              </Link>
+              </LinkAnchor>
             </Content>
             <Details>
               rotation time <Info>{eachPlanet.rotation}</Info>

@@ -3,7 +3,7 @@ import {
   Info,
   Heading,
   Paragraph,
-  Link,
+  LinkAnchor,
   Content,
   About,
   DetailsForTablet,
@@ -26,9 +26,9 @@ function Saturn() {
               <Content>
                 <Heading>{json[5].name}</Heading>
                 <Paragraph>{json[5].overview.content}</Paragraph>
-                <Link href={json[5].overview.source}>
+                <LinkAnchor href={json[5].overview.source}>
                   Source: Wikipedia <Img></Img>
-                </Link>
+                </LinkAnchor>
               </Content>
               <DetailsForTablet>
                 <About color="#CD5120" background="#CD5120">

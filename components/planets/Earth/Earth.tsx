@@ -3,7 +3,7 @@ import {
   Info,
   Heading,
   Paragraph,
-  Link,
+  LinkAnchor,
   Content,
   About,
   DetailsForTablet,
@@ -26,9 +26,9 @@ function Earth() {
               <Content>
                 <Heading>{json[2].name}</Heading>
                 <Paragraph>{json[2].overview.content}</Paragraph>
-                <Link href={json[2].overview.source}>
+                <LinkAnchor href={json[2].overview.source}>
                   Source: Wikipedia <Img></Img>
-                </Link>
+                </LinkAnchor>
               </Content>
               <DetailsForTablet>
                 <About color="#6D2ED5" background="#6D2ED5">

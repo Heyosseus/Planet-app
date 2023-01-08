@@ -9,7 +9,7 @@ import {
   Info,
   Heading,
   Paragraph,
-  Link,
+  LinkAnchor,
   Content,
   DetailsForTablet,
   About,
@@ -32,9 +32,9 @@ function Mercury() {
               <Content>
                 <Heading>{json[0].name}</Heading>
                 <Paragraph>{json[0].overview.content}</Paragraph>
-                <Link href={json[0].overview.source}>
+                <LinkAnchor href={json[0].overview.source}>
                   Source: Wikipedia <Img></Img>
-                </Link>
+                </LinkAnchor>
               </Content>
               <DetailsForTablet>
                 <About
