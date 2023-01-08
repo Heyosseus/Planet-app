@@ -20,6 +20,8 @@ export const Details = styled.div`
     height: 108px;
     display: flex;
     flex-direction: column;
+    font-size: 10px;
+    color: #ffffff89;
   }
 `
 
@@ -97,17 +99,20 @@ export const Info = styled.div`
     text-align: left;
     margin: 16px 0;
     color: #d7d5d5;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 100;
   }
 `
 
-export const Link = styled.a`
+export const LinkAnchor = styled.a`
   color: #d7d5d5;
   font-size: 12px;
   line-height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+
 `;
 
 export const Content = styled.div`
@@ -144,7 +149,7 @@ export const DetailsContainer = styled.div`
 
 export const ForDesktopAdjustment = styled.div`
   @media (min-width: 1440px){
-    width: 960px;
+    width: 790px;
   }
 `
 
@@ -196,4 +201,6 @@ export const FlexContainerForDesktop = styled.div`
 
 export const PlanetsContainer = styled.div`
   display: flex;
+  text-decoration: none;
+  color: white;
 `
